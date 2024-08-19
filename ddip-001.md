@@ -76,6 +76,8 @@ Function parameters MUST have following structure:
 }
 ```
 
+Function parameters MAY have other fields, defined by other DDIPs.
+
 After posting a function call event, client SHALL subscribe to
 mentions of the event's id to get notified about the results.
 
