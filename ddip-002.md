@@ -91,4 +91,4 @@ Workers reply to call requests at their discretion.  They MAY
 implement an ACL and reply only to specific clients.
 
 To prevent flood, workers MAY implement a rate control and drop call
-requests at their dicretion.
+requests at their discretion.
