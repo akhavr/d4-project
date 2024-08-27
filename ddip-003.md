@@ -19,8 +19,10 @@ case.
 If a `payment` field is present in the worker result response, the
 client MUST use payment protocol it to pay `total_cost` amount.
 
-This DDIP defines [lnurl]((https://github.com/lnurl/luds), [lightning address](https://github.com/andrerfneves/lightning-address/) and 
-[nip-57](https://github.com/nostr-protocol/nips/blob/master/57.md) payment methods:
+This DDIP defines [lnurl](https://github.com/lnurl/luds), [lightning
+address](https://github.com/andrerfneves/lightning-address/) and
+[nip-57](https://github.com/nostr-protocol/nips/blob/master/57.md)
+payment methods:
 
 - `lnurl`
 - `lnaddr`
