@@ -62,7 +62,7 @@ it contains `payment` field.
 
 For lnurl purposes the worker is "the service".
 
-If worker signaled that he's willing to get paid with `lnurl.balance`
+If worker signaled that he's willing to get paid with `lnurl`
 protocol, there MUST be extra field `lnurl` which contains
 `payRequest` endpoint per [LUD-06: payRequest base
 spec](https://github.com/lnurl/luds/blob/luds/06.md)
@@ -79,7 +79,7 @@ spec](https://github.com/lnurl/luds/blob/luds/03.md)
 
 ## Lightning address payment protocol
 
-If worker signaled that he's willing to get paid with `lnaddr.balance`
+If worker signaled that he's willing to get paid with `lnaddr`
 protocol, there MUST be an extra field `lnaddr` which contains [the
 lightning
 address](https://github.com/andrerfneves/lightning-address/blob/master/README.md)
