@@ -170,11 +170,15 @@ Result content MUST have the following structure:
 ```json
 {
  "result": <serialized json with the result>,
+ "iteration_cost": 1000, # in milisatoshi
+ "total_cost": 35000, # in milisatoshi
  "err": <optional, serialized json with the error>,
  "more_results": <true|false>,
  "version": "0.1.0"
 }
 ```
+
+There MAY be other fields, defined by respective DDIPs.
 
 Sample worker response to the request above:
 
@@ -190,12 +194,12 @@ Sample worker response to the request above:
    # see the request eventid above
  ],
  "content": """{
+   "iteration_cost": 1000, # in milisatoshi
+   "total_cost": 35000, # in milisatoshi
    "result": """{
    	 "id": "chatcmpl-13e3781a-2728-4006-93d6-0cdec3ef6f69",
    	 "object": "chat.completion",
    	 "model": "mistral-7b-instruct-v0.1.Q4_K_M.gguf",
-   	 "iteration_cost": 1000, # in milisatoshi
-   	 "total_cost": 35000, # in milisatoshi
    	 "choices": [{"index": 0,
    	   "message": {"role": "assistant",
    	    "content": " The capital city of France is Paris."},
@@ -261,12 +265,12 @@ And the response
    # see the request eventid above
  ],
  "content": """{
+   "iteration_cost": 1000, # in milisatoshi
+   "total_cost": 72000, # in milisatoshi
    "result": """{
    	 "id": "chatcmpl-13e3781a-2728-4006-93d6-0cdec3ef6f69",
    	 "object": "chat.completion",
    	 "model": "mistral-7b-instruct-v0.1.Q4_K_M.gguf",
-   	 "iteration_cost": 1000, # in milisatoshi
-   	 "total_cost": 72000, # in milisatoshi
    	 "choices": [{"index": 0,
    	   "message": {"role": "assistant",
    	   "content": " Putin, the clown of Russia's throne,\n"
@@ -308,10 +312,9 @@ Price suggestion content MUST have the format:
 
 ```json
 {
-  "result": {
-    "iteration_cost": <integer iteration cost in msats>,
-    "total_cost": <integer max cost in mstats>
-  },
+  "result": null,
+  "iteration_cost": <integer iteration cost in msats>,
+  "total_cost": <integer max cost in mstats>
   "more_results": false,
   "version": "0.1.0"
 }
@@ -331,9 +334,9 @@ Sample worker answer with price alternative
    # see the request eventid above
  ],
  "content": """{
-   "result": { "iteration_cost": 2000, # msats
-               "total_cost": 200000, # msats
-		     },
+   "result": null,
+   "iteration_cost": 2000, # msats
+   "total_cost": 200000, # msats
    "more_results": false,
    "version": "0.1.0"
    }"""
@@ -359,3 +362,36 @@ The worker MAY return an in `err` field of the result respose content.
 Interpretation depends on the function definition (see
 [DDIP-002](./ddip-002.m2)
 
+## Result feedback
+
+After the result is posted, the client MAY post the followup kind-1
+event, refering the result response in `#e` tag.
+
+```json
+{
+ "id": <event nostr id>,
+ "pubkey": <worker's nostr pubkey>,
+ "created_at": <nostr timestamp in seconds>,
+ "kind": 1,
+ "tags"; [
+   ["e", <function result responce event>"],
+   ["e", <function definition event>],
+ ],
+ "content": <serialized json of the result feedback>,
+ "sig": <nostr sig>,
+}
+```
+
+Result content MUST have the following structure:
+
+```json
+{
+ "score": <integer from 0 to 9, 0 - completely unacceptable, 9 - perferctly useful>,
+ "version": "0.1.0"
+}
+```
+
+This may help collect feedback to finetune trainable functions like
+language and diffusion models.
+
+There MAY be other optional fields defined in other DDIPs.
