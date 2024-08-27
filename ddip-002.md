@@ -46,7 +46,8 @@ worker is connected to the signing system.  Other usage is a webapi
 call to an external service: the api secret is shared off-band.
 
 Function definition MAY contain additional fields that depend on the
-language definition.
+language definition.  Possible additioinal fields are defined in this
+and other DDIPs.
 
 `#r` tags of language definitions MUST be interpreted as first match,
 so put more specific definition first.
@@ -84,6 +85,11 @@ To discover new contracts potentially runnable by the worker, the
 worker MIGHT subscribe to a specific `#r` language tag.
 
 It's up to worker to determine it's pricing.
+
+To facilitate function discovery, function definition MAY have
+`description` field.  If there's one, it SHALL contain plain english
+description of the nature of the function and parameters (like python
+or java docstring)
 
 ## Authentication and rate control
 
