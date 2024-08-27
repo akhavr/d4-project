@@ -1,6 +1,8 @@
 Payments in D4 protocol
 --------------------
 
+`optional` `author:akhavr`
+
 This DDIP defines OPTIONAL field `payment` in the worker response that
 defines payment expectations.
 
