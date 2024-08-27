@@ -19,13 +19,16 @@ case.
 If a `payment` field is present in the worker result response, the
 client MUST use payment protocol it to pay `total_cost` amount.
 
-This DDIP defines [lnurl]((https://github.com/lnurl/luds))
-payment method and its
-[nip-57](https://github.com/nostr-protocol/nips/blob/master/57.md) counterpart:
+This DDIP defines [lnurl]((https://github.com/lnurl/luds), [lightning address](https://github.com/andrerfneves/lightning-address/) and 
+[nip-57](https://github.com/nostr-protocol/nips/blob/master/57.md) payment methods:
 
-- `lnurl.balance`
-- `lnaddr.balance`
-- `nip57.balance`
+- `lnurl`
+- `lnaddr`
+- `nip57`
+
+Other payment protocols, for example defining less custodial payment
+methods, are to be defined in separate DDIPs.  They MAY or MAY NOT
+use the same balance logic.
 
 Worker keeps a balance of the client.  There might be several workers,
 sharing the same balance.
@@ -39,9 +42,6 @@ charge a storage fee.
 
 Recomended approach is to fund worker balance, perform a call or
 several ones, and withdraw it.
-
-Other payment protocols, for example defining less custodial payment
-methods, are to be defined in separate DDIPs.
 
 If the client has a positive balance at the worker, or the worker
 allows balance to go negative, client discovers payment protocol and
