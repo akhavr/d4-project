@@ -61,17 +61,14 @@ it contains `payment` field.
 For lnurl purposes the worker is "the service".
 
 If worker signaled that he's willing to get paid with `lnurl.balance`
- protocol, there MUST be extra field `lnurl` which contains
- `payRequest` endpoint per [LUD-06: payRequest base
- spec](https://github.com/lnurl/luds/blob/luds/06.md)
+protocol, there MUST be extra field `lnurl` which contains
+`payRequest` endpoint per [LUD-06: payRequest base
+spec](https://github.com/lnurl/luds/blob/luds/06.md)
 
 Then the payment MUST proceed using LUD-06 spec.
 
 The client SHALL identify itself using [LUD-18: Payer identity in
 payRequest protocol.](https://github.com/lnurl/luds/blob/luds/18.md)
-
-??? `metadata` returned by the worker MUST contain call request eventid in
-"text/plain" mandatory field and only it. ???
 
 The client MUST pay at least `max_total_cost` msats.
 
@@ -96,4 +93,4 @@ Zaps](https://github.com/nostr-protocol/nips/blob/master/57.md)
 specification.  Client MAY zap either worker pubkey or result response
 or price negotiation event.
 
-??? How to withdraw in this case ???
+Withdrawal is not possible in this payment protocol.
