@@ -1,6 +1,8 @@
 Encryption and anonymity
 --------------------
 
+`optional` `author:akhavr`
+
 This is not an extensive guide, but only an overview of options.
 Don't consider this as an up-to-date reference, but just as a start
 for your own implementation.

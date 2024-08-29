@@ -29,7 +29,6 @@ Function definition MUST have following format:
 
 ```json
 {
- "traits": <optional, list of webpage-dependend traits, like language version>,
  "code": <optional, the actual code implementing the contract>,
  "code-ref": <optional, URI reference (RFC 3986) of the code, implementing the contract>,
  "version": "0.1.0",
@@ -58,8 +57,6 @@ example "negotiate price" contract will refer canonical page with
 
 If `code-ref` is used, it MUST be present in `#r` tags for ease of
 search and subscription.
-
-Interpretation of `traits` depends on the `#r`-tagged language.
 
 ## Function implementation
 
