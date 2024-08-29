@@ -54,21 +54,3 @@ def main(num)
 
 
 Note: `venv-ref` makes sense only with `code-ref`
-
-Q: should we return stdout?
-A: No, there is no stdout
-
-Q: how set a range of versions?
-
-TBD: `traits`
-- `traits`: json which interpretation depends on `url`.  For example,
-  it may refer to a range of versions of language to be used:
-
-```
-{"traits": {"versions": "3.7+"},
-}
-```
-
-Implementation TODO: try function import (eval?) in python
-
-`docker run -i --rm --name python -v $(pwd):/app -w /app python:3 python test.py` produces stdout to stdout and stderr to stderr
