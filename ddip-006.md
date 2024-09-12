@@ -1,14 +1,14 @@
-D4 Docker function implementation
+D4 Docker function definition
 ====================
 
 `mandatory` `author:akhavr`
 
-Docker function implementation
+Docker function definition
 --------------------
 
-Docker function implementation event MUST `#r` tag this DDIP.
+Docker function definition event MUST `#r` tag this DDIP.
 
-Docker function implementation event MUST follow the following format
+Docker function definition event MUST follow the following format
 
 ```json
 {

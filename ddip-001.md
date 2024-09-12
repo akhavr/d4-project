@@ -1,4 +1,4 @@
-Deadly Dumb Data Derivation Protocol (D4 protocol) - DDIP-01
+Deadly Dumb Data Derivation Protocol (D4 protocol) - DDIP-001
 ====================
 
 Basic protocol flow description
