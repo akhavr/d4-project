@@ -13,6 +13,7 @@ Docker function definition event MUST follow the following format
 ```json
 {
  [...],
+ "image": <mandatory, url of docker image>,
  "type": "httppost",
  "link": <mandatory, http path to trigger the call>,
  "port": <mandatory, http docker port to trigger the call>,
