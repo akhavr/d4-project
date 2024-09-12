@@ -1,14 +1,14 @@
-D4 Python function implementation
+D4 Python function definition
 ====================
 
-Python function implementation
+Python function definition
 --------------------
 
 `mandatory` `author:akhavr`
 
-Python function implementation MUST `#r` tag this DDIP.
+Python function event MUST `#r` tag this DDIP.
 
-Python function definition event MUST follow the following format
+Python function event MUST follow the following format
 
 ```json
 {
