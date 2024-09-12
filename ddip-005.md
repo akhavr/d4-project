@@ -6,9 +6,9 @@ Python function implementation
 
 `mandatory` `author:akhavr`
 
-Python function implementation MUST `#r` tag this DDIP.
+Python function implementation event MUST `#r` tag this DDIP.
 
-Python function definition event MUST follow the following format
+Python function definition (?) event MUST follow the following format
 
 ```json
 {
